@@ -1,0 +1,503 @@
+body {
+	font: 14px Trebuchet MS, Arial, Helvetica, sans-serif;
+	background: #fff url(../images/main-bg.jpg);
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+p {
+	text-align: justify;
+}
+
+a {
+	color: #0099CC;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #00CCFF;
+}
+
+.hiddenFancyBoxes {
+	display: none;
+}
+
+.allFancyBoxes{
+	width:800px;
+	height:500px;
+	overflow:auto;
+	font: 18px Trebuchet MS;
+	text-align: justify;
+}
+
+.selectedTool.sizeTool, .selectedTool.sizeTool:hover, .selectedTool.colorTool, .selectedTool.colorTool:hover {
+	-webkit-box-shadow:0 0 15px yellow; 
+	-moz-box-shadow: 0 0 15px yellow; 
+	box-shadow:0 0 15px yellow;
+	border: 2px solid yellow;
+}
+
+.sizeTool:hover, .colorTool:hover {
+	-webkit-box-shadow:0 0 15px cyan; 
+	-moz-box-shadow: 0 0 15px cyan; 
+	box-shadow:0 0 15px cyan;
+}
+
+.colorTool {
+	border: 2px solid #ccc;
+	height: 16px;
+	width: 16px;
+	margin: 4px 1px 0px 1px;
+	float: left;
+	border-radius: 8px;
+}
+
+.goodbutton {
+	margin-top: 2px;
+	color: #9f9;
+	border-radius: 8px;
+	background-color: #050;
+}
+
+.goodbutton:hover {
+	color: #cfc;
+	background-color: #090;
+	-webkit-box-shadow:0 0 15px 2px #0f0; 
+	-moz-box-shadow: 0 0 15px 2px #0f0; 
+	box-shadow:0 0 15px 2px #0f0;
+}
+
+.okbutton {
+	margin-top: 2px;
+	color: #ff9;
+	border-radius: 8px;
+	background-color: #550;
+}
+
+.okbutton:hover {
+	color: #ffc;
+	background-color: #990;
+	-webkit-box-shadow:0 0 15px 2px #ff0; 
+	-moz-box-shadow: 0 0 15px 2px #ff0; 
+	box-shadow:0 0 15px 2px #ff0;
+}
+
+.badbutton {
+	margin-top: 2px;
+	color: #f99;
+	border-radius: 8px;
+	background-color: #500;
+}
+
+.badbutton:hover {
+	color: #fcc;
+	background-color: #900;
+	-webkit-box-shadow:0 0 15px 2px #f00; 
+	-moz-box-shadow: 0 0 15px 1px #f00; 
+	box-shadow:0 0 15px 2px #f00;
+}
+
+.sizeTool {
+	border: 2px solid #ccc;
+	margin: 1px;
+	float: left;
+	background-color: black;
+}
+
+#sizeTool2 {height: 4px; width: 4px; margin-top: 11px;}
+#sizeTool4 {height: 6px; width: 6px; margin-top: 10px;}
+#sizeTool6 {height: 10px; width: 10px; margin-top: 8px;}
+#sizeTool8 {height: 14px; width: 14px; margin-top: 6px;}
+#sizeTool12 {height: 18px; width: 18px; margin-top: 4px;}
+
+#blackColorTool {background-color: black;}
+#redColorTool {background-color: red;}
+#yellowColorTool {background-color: yellow;}
+#greenColorTool {background-color: green;}
+#cyanColorTool {background-color: cyan;}
+#blueColorTool {background-color: blue;}
+#magentaColorTool {background-color: magenta;}
+#whiteColorTool {background-color: white;}
+
+#sketchArea {
+	float: left;
+	background-color: white;
+	opacity: 0.8;
+	margin-top: 2px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	border-radius: 16px;
+	-moz-box-shadow: 4px 4px 3px #666;
+  	-webkit-box-shadow: 4px 4px 3px #666;
+  	box-shadow: 4px 4px 3px #666;
+  	z-index: 100;
+}
+
+#sketchOverlayTools:hover {
+	opacity: 1;
+	height: 26px;
+}
+
+#sketchOverlayTools {
+	height: 10px;
+	width: 542px;
+	overflow: hidden;
+	-webkit-border-bottom-left-radius: 16px;
+	-webkit-border-bottom-right-radius: 16px;
+	-moz-border-radius-bottomleft: 16px;
+	-moz-border-radius-bottomright: 16px;
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+	position: absolute;
+	bottom: 3px;
+	padding-left: 6px;
+	padding-right: 6px;
+	opacity: 0.7;
+	background-color: gray;
+	z-index: 120;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.overlayText {
+	font-family: Comic Sans MS;
+}
+
+#THEWORD {
+	color: #0ff;
+}
+
+#wordMessage {
+	float: left;
+}
+
+#timeLeft {
+	float: right;
+	color: #ff0;
+}
+
+.matchTable {
+	float: left;
+	width: 64.5%;
+}
+
+#sketchOverlayMsg:hover {
+	opacity: 1;
+	font-size: 26px;
+	height: 36px;
+}
+
+#sketchOverlayMsg {
+	height: 18px;
+	width: 534px;
+	font-size: 14px;
+	-webkit-border-top-left-radius: 16px;
+	-webkit-border-top-right-radius: 16px;
+	-moz-border-radius-topleft: 16px;
+	-moz-border-radius-topright: 16px;
+	border-top-left-radius: 16px;
+	border-top-right-radius: 16px;
+	position: absolute;
+	top: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	opacity: 0.7;
+	background-color: gray;
+	z-index: 120;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+#LeaveMatchBtn, #StartMatchBtn {
+	margin-top: 4px;
+	font: bold 1.6em Comic Sans MS;
+}
+
+a img {
+  border: none;/*remove border for linked images*/
+}
+
+#matchPlayersList {
+	height: 276px;
+	overflow-y: auto;
+	font: 1.2em Trebuchet MS;
+}
+
+#mainGameTable {
+	padding-top: 4px;
+	border-top: 2px dotted green;
+}
+
+h1 {
+	font-family: Comic Sans MS;
+	font-weight: bolder;
+	font-size: 3em;
+	height: 26px;
+	padding-top: 0;
+}
+
+.shoutBox {
+	border: 2px solid #999;
+	box-shadow: 2px 2px 4px #444;
+	webkit-box-shadow: 2px 2px 4px #444;
+	background-color: #EEE;
+	opacity: 0.7;
+	overflow-y: auto;
+	word-wrap: break-word;
+	padding: 4px 4px 4px 4px;
+	border-radius: 1em 1em 1em 1em;
+	-moz-border-radius: 1em 1em 1em 1em;
+	margin-top: 1px; 
+}
+
+#chatBoxDiv {
+	float: left;
+	width: 33.5%;
+	height: 344px;
+	margin-left: 2px;
+	font-size: 12px;
+}
+
+#shoutBoxDiv {
+	width: 844px;
+	height: 342px;
+}
+
+.shoutMsg, .shoutMsg:focus {
+	resize: none;
+	border-radius: 1em 1em 1em 1em;
+	-moz-border-radius: 1em 1em 1em 1em;
+	margin-top: 4px;
+	padding: 4px 4px 4px 4px;
+	outline: none;
+	border: 2px solid #999;
+	font-family: Trebuchet MS;
+	font-weight: bolder;
+	color: #22a;
+	float: left;
+}
+
+#chatMsgDiv > img {
+	height: 16px;
+}
+
+#chatMsgDiv {
+	height: 46px;
+	width: 33.5%;
+	margin-left: 2px; 
+}
+
+#shoutMsgDiv {
+	height: 48px;
+	width: 750px;
+	letter-spacing: 1px;
+	font-size: 1.1em;
+}
+
+.column {
+	text-align: center;
+}
+
+textarea::-webkit-input-placeholder {color: #889; font-size: 1em;}
+textarea:-moz-placeholder {color: #889; font-size: 1em;}
+
+#shoutBtn {
+	height: 60px;
+	float: left;
+	margin-left: 4px;
+	margin-top: 4px;
+	font-size: 1.3em;
+}
+
+span.chatSuper {
+	color: #800;
+	font-weight: bolder;
+}
+
+span.chatGroup {
+	color: #808;
+	font-weight: bolder;
+}
+
+span.chatUser {
+	color: #080;
+	font-weight: bolder;
+}
+
+span.chatTime {
+	color: #008;
+}
+
+.gamesTable {
+	margin-top: 8px;
+	height: 27em;
+	text-align: center;
+}
+
+td.GameID, th.GameID {
+	width: 18%;
+}
+
+td.Players, th.Players {
+	width: 70%;
+}
+
+td.JoinGame, th.JoinGame {
+	width: 8%;
+}
+
+#panelMSG {
+	color: #000;
+	clear: both;
+	width: 820px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: Trebuchet MS;
+	letter-spacing: 1px;
+	border: 2px dashed #272727;
+}
+
+.goodmsg {
+	background-color: #dfd;
+}
+
+.nomsg {
+	background-color: #ffd;
+}
+
+.badmsg {
+	background-color: #fdd;
+}
+
+.smt {
+	-webkit-text-stroke: 0.06em #009;
+	-webkit-text-fill-color: #f99; 
+	color: blue;
+	
+	-webkit-animation: smt_anim 15s infinite;
+	-webkit-animation-direction: alternate;
+	text-shadow: 0px 0px 30px green;
+}
+		
+@-webkit-keyframes smt_anim {
+	0% {
+		-webkit-text-stroke: 0.06em #009;
+		-webkit-text-fill-color: #fff;
+	}
+	20% {
+		-webkit-text-stroke: 0.06em #909;
+		-webkit-text-fill-color: #ff9;
+	}
+	40% {
+		-webkit-text-stroke: 0.06em #900;
+		-webkit-text-fill-color: #fff;
+	}
+	60% {
+		-webkit-text-stroke: 0.06em #990;
+		-webkit-text-fill-color: #9ff;
+	}
+	80% {
+		-webkit-text-stroke: 0.06em #090;
+		-webkit-text-fill-color: #fff;
+	}
+	100% {
+		-webkit-text-stroke: 0.06em #099;
+		-webkit-text-fill-color: #f9f;
+	}
+}
+
+h2{
+	font-size: 1.2em;
+	height: 20px;
+	padding-top: 0;
+}
+
+.highlight {/*background-color:#FF9D9D;border-bottom:#F30 1px solid;border-top:#F30 1px solid;padding: 4px 10px;*/ font-family: Comic Sans MS; font-size: 1.5em; text-align: justify;}
+
+/***** Main Layout ****/
+#container {
+  	width: 100%;
+  	height: 100%;
+  	text-align: center;/* IE fix to center the page */
+}
+
+#content {
+  	width: 920px;
+  	margin: 0 auto;/* center the page in Firefox */
+  	text-align: left;
+}
+
+img {
+	border: none;
+}
+
+/* dock - top */
+.dock {
+	position: relative; 
+	height: 50px; 
+	text-align: center;
+	z-index: 10000;
+}
+.dock-container {
+	position: absolute;
+	height: 50px;
+	background: url(../images/dock-bg2.gif);
+	padding-left: 20px;
+}
+a.dock-item {
+	display: block;
+	width: 40px;
+	color: #000;
+	position: absolute;
+	top: 0px;
+	text-align: center;
+	text-decoration: none;
+	font: bold 12px Arial, Helvetica, sans-serif;
+}
+.dock-item img {
+	border: none; 
+	margin: 5px 10px 0px; 
+	width: 100%; 
+}
+.dock-item span {
+	display: none; 
+	padding-left: 20px;
+}
+
+/* dock2 - bottom */
+#dock2 {
+	width: 100%;
+	bottom: 0px;
+	height: 40px;
+	position: absolute;
+	left: 0px;
+	z-index: 10000;
+}
+.dock-container2 {
+	position: absolute;
+	height: 40px;
+	background: url(../images/dock-bg.gif);
+	padding-left: 20px;
+}
+a.dock-item2 {
+	display: block; 
+	font: bold 12px Arial, Helvetica, sans-serif;
+	width: 30px; 
+	color: #000; 
+	bottom: 0px; 
+	position: absolute;
+	text-align: center;
+	text-decoration: none;
+}
+.dock-item2 span {
+	display: none;
+	padding-left: 20px;
+	font-size: 16px; 
+}
+.dock-item2 img {
+	border: none; 
+	margin: 5px 10px 0px; 
+	width: 100%; 
+}
