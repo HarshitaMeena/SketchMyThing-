@@ -1,1 +1,17 @@
 /config.php
+
+/UsersDB/GlobalPoints/*
+/UsersDB/MatchPoints/*
+/UsersDB/LastAjax/*
+/UsersDB/MatchesPlayed/*
+/UsersDB/MemberLogins/*
+/UsersDB/Members/*
+/UsersDB/PendingHashes/*
+/UsersDB/ToBeVerified/*
+
+/SMT_Internal/Matches/Locked/*
+/SMT_Internal/Matches/MatchInfo/*
+/SMT_Internal/Matches/Waiting/*
+
+/SMT_Internal/Shoutbox/Private/*
+/SMT_Internal/Shoutbox/AllBoxes/*
