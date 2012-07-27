@@ -7,7 +7,7 @@
     Saswat Padhi
 */
 
-include_once dirname(__FILE__) . "/../config.php";
+include_once dirname(dirname(__FILE__)) . "/config.php";
 
 function cmd($smtp, $str, $report=true )
 {
