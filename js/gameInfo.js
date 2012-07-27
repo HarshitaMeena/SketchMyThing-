@@ -68,9 +68,6 @@ $(document).ready(
     function() {
         getSMTInfo();
 
-        $("#SMTSettingsDockIcon").fancybox(fancyboxOptions);
-        $("#SMTProfileDockIcon").fancybox(fancyboxOptions);
-
         $("#shoutBtn").click(
             function () {
                 $.ajax({

@@ -40,26 +40,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>Sketch My Thing !</title>
 
-    <!--[if lt IE 7]>
-     <style type="text/css">
-     .dock img { behavior: url(iepngfix.htc) }
-     </style>
-    <![endif]-->
-
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/fancybox.css" rel="stylesheet" type="text/css" />
     <link href="css/anythingslider.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript" src="js/iutil.js"></script>
-    <script type="text/javascript" src="js/fisheye.js"></script>
     <script type="text/javascript" src="js/fancybox.js"></script>
-    <!-- PNG FIX for IE6 -->
-    <!-- http://24ways.org/2007/supersleight-transparent-png-in-ie6 -->
-    <!--[if lte IE 6]>
-        <script type="text/javascript" src="js/pngfix/supersleight-min.js"></script>
-    <![endif]-->
     <script type="text/javascript" src="js/anythingslider.js"></script>
     <script type="text/javascript" src="js/commonScreenInfo.js"></script>
     <?php if($_SESSION['SMT_Role'] == 'Active') echo '    <script type="text/javascript" src="js/activeScreenInfo.js"></script>'; else echo '    <script type="text/javascript" src="js/passiveScreenInfo.js"></script>';?>
@@ -117,40 +104,5 @@
             <h2 style="text-align: center; font-size: 1.2em;">Sketch My Thing ! Designed and Created by Saswat Padhi, BTech II CSE IIT-Bombay [2011]</h2>
         </div><!-- / content -->
     </div><!-- / container -->
-
-<!--bottom dock -->
-<div class="dock" id="dock2">
-    <div class="dock-container2">
-        <a class="dock-item2" href="./"><span>Home</span><img src="images/home.png" alt="home" /></a>
-        <a class="dock-item2" href="#"><span></span><img alt="" /></a>
-          <a class="dock-item2" href="#SMT_UnderConstruction" id="SMTProfileDockIcon" title="Sketch My Thing ! :: Profile"><span>Profile</span><img src="images/email.png" alt="settings" /></a>
-        <a class="dock-item2" href="#SMT_UnderConstruction" id="SMTSettingsDockIcon" title="Sketch My Thing ! :: Settings"><span>Settings</span><img src="images/email.png" alt="settings" /></a>
-        <a class="dock-item2" href="#"><span></span><img alt="" /></a>
-        <a class="dock-item2" href="#SMT_Help" id="SMTHelpDockIcon" title="Sketch My Thing ! :: Help"><span>Help</span><img src="images/portfolio.png" alt="help" /></a>
-        <a class="dock-item2" href="#SMT_About" id="SMTAboutDockIcon" title="Sketch My Thing ! :: About"><span>About</span><img src="images/portfolio.png" alt="about" /></a>
-        <a class="dock-item2" href="#"><span></span><img alt="" /></a>
-          <a class="dock-item2" href="#"><span>Logout</span><img src="images/portfolio.png" alt="logout" /></a>
-      </div>
-</div>
-
-<script type="text/javascript" src="js/init.js"></script>
-
-<!-- Fancybox hidden content -->
-<div class="hiddenFancyBoxes">
-    <div id="SMT_UnderConstruction" class="allFancyBoxes">
-        <br><br><br><br><center><h1 class="smt">Under Construction</h1></center>
-    </div>
-    <div id="SMT_Help" class="allFancyBoxes">
-        <br><span class="smt">&nbsp;&nbsp;Sketch My Thing&nbsp;&nbsp;</span> is really simple, yet interesting multi-player game.
-    </div>
-    <div id="SMT_About" class="allFancyBoxes">
-        <h1 class="smt">&nbsp;Sketch My Thing !</h1><br><br>
-        Version: 0.9b<br>
-        Created: 28th October, 2011<br>
-        <br>
-        Designed and created by SASWAT PADHI, (CSE II) IIT-Bombay.
-    </div>
-</div>
-<!-- /Fancybox hidden content -->
 </body>
 </html>
