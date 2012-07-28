@@ -1,6 +1,11 @@
+@font-face {
+	font-family: customfont;
+	src: url('../fonts/summertime_lovin.otf');
+}
 body {
     font: 14px Trebuchet MS, Arial, Helvetica, sans-serif;
     background: black;
+	color: white;
     padding: 0;
     margin: 0;
     border: 0;
@@ -130,9 +135,9 @@ a:hover {
     -moz-border-radius: 16px;
     border-radius: 16px;
     -moz-box-shadow: 4px 4px 3px #666;
-      -webkit-box-shadow: 4px 4px 3px #666;
-      box-shadow: 4px 4px 3px #666;
-      z-index: 100;
+    -webkit-box-shadow: 4px 4px 3px #666;
+    box-shadow: 4px 4px 3px #666;
+    z-index: 100;
 }
 
 #sketchOverlayTools:hover {
@@ -211,8 +216,11 @@ a:hover {
 }
 
 #LeaveMatchBtn, #StartMatchBtn {
-    margin-top: 4px;
-    font: bold 1.6em Comic Sans MS;
+    font: normal 2.3em customfont;
+    text-transform: lowercase;
+    color: blue;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
 }
 
 a img {
@@ -226,30 +234,21 @@ a img {
 }
 
 #mainGameTable {
+    width: 858px;
     padding-top: 4px;
     border-top: 2px dotted green;
 }
 
-h1 {
-    font-family: Comic Sans MS;
-    font-weight: bolder;
-    font-size: 3em;
-    height: 26px;
-    padding-top: 0;
-}
-
 .shoutBox {
     border: 2px solid #999;
-    box-shadow: 2px 2px 4px #444;
-    webkit-box-shadow: 2px 2px 4px #444;
     background-color: #EEE;
-    opacity: 0.7;
     overflow-y: auto;
     word-wrap: break-word;
-    padding: 4px 4px 4px 4px;
-    border-radius: 1em 1em 1em 1em;
-    -moz-border-radius: 1em 1em 1em 1em;
-    margin-top: 1px; 
+    padding: 4px;
+    border-radius: 0em 0em 1em 1em;
+    -moz-border-radius: 0em 0em 1em 1em;
+    margin-top: 1px;
+    color: black;
 }
 
 #chatBoxDiv {
@@ -266,16 +265,16 @@ h1 {
 
 
 #shoutBoxDiv {
-    width: 844px;
+    width: 848px;
     height: 342px;
 }
 
 .shoutMsg, .shoutMsg:focus {
     resize: none;
-    border-radius: 1em 1em 1em 1em;
-    -moz-border-radius: 1em 1em 1em 1em;
+    border-radius: 1em 1em 0em 0em;
+    -moz-border-radius: 1em 1em 0em 0em;
     margin-top: 4px;
-    padding: 4px 4px 4px 4px;
+    padding: 4px;
     outline: none;
     border: 2px solid #999;
     font-family: Trebuchet MS;
@@ -296,7 +295,7 @@ h1 {
 
 #shoutMsgDiv {
     height: 48px;
-    width: 750px;
+    width: 752px;
     letter-spacing: 1px;
     font-size: 1.1em;
 }
@@ -309,11 +308,16 @@ textarea::-webkit-input-placeholder {color: #889; font-size: 1em;}
 textarea:-moz-placeholder {color: #889; font-size: 1em;}
 
 #shoutBtn {
+    color: blue;
     height: 60px;
     float: left;
-    margin-left: 4px;
+    margin-left: 2px;
     margin-top: 4px;
-    font-size: 1.3em;
+    font-size: 1.7em;
+    text-transform: lowercase;
+    font-family: customfont;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
 }
 
 span.chatSuper {
@@ -346,11 +350,11 @@ td.GameID, th.GameID {
 }
 
 td.Players, th.Players {
-    width: 70%;
+    width: 65%;
 }
 
 td.JoinGame, th.JoinGame {
-    width: 8%;
+    width: 12%;
 }
 
 #panelMSG {
@@ -377,49 +381,29 @@ td.JoinGame, th.JoinGame {
 }
 
 .smt {
-    -webkit-text-stroke: 0.06em #009;
-    -webkit-text-fill-color: #f99; 
-    color: blue;
-    
-    -webkit-animation: smt_anim 15s infinite;
-    -webkit-animation-direction: alternate;
-    text-shadow: 0px 0px 30px green;
+    color: orange;
+    font-family: customfont;
+	text-transform: lowercase;
+    text-shadow: 0px 0px 20px blue;
 }
-        
-@-webkit-keyframes smt_anim {
-    0% {
-        -webkit-text-stroke: 0.06em #009;
-        -webkit-text-fill-color: #fff;
-    }
-    20% {
-        -webkit-text-stroke: 0.06em #909;
-        -webkit-text-fill-color: #ff9;
-    }
-    40% {
-        -webkit-text-stroke: 0.06em #900;
-        -webkit-text-fill-color: #fff;
-    }
-    60% {
-        -webkit-text-stroke: 0.06em #990;
-        -webkit-text-fill-color: #9ff;
-    }
-    80% {
-        -webkit-text-stroke: 0.06em #090;
-        -webkit-text-fill-color: #fff;
-    }
-    100% {
-        -webkit-text-stroke: 0.06em #099;
-        -webkit-text-fill-color: #f9f;
-    }
+
+.smts {
+    font-weight: bold;
+    color: orange;
+    text-shadow: 0px 0px 20px blue;
+}
+
+.JoinBtn {
+    color: #080;
+    font: bolder 1em Trebuchet MS;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
 }
 
 h2{
-    font-size: 1.2em;
-    height: 20px;
+    font-size: 1em;
     padding-top: 0;
 }
-
-.highlight {/*background-color:#FF9D9D;border-bottom:#F30 1px solid;border-top:#F30 1px solid;padding: 4px 10px;*/ font-family: Comic Sans MS; font-size: 1.5em; text-align: justify;}
 
 /***** Main Layout ****/
 #container {
@@ -429,80 +413,11 @@ h2{
 }
 
 #content {
-      width: 920px;
+      width: 960px;
       margin: 0 auto;/* center the page in Firefox */
       text-align: left;
 }
 
 img {
     border: none;
-}
-
-/* dock - top */
-.dock {
-    position: relative; 
-    height: 50px; 
-    text-align: center;
-    z-index: 10000;
-}
-.dock-container {
-    position: absolute;
-    height: 50px;
-    background: url(../images/dock-bg2.gif);
-    padding-left: 20px;
-}
-a.dock-item {
-    display: block;
-    width: 40px;
-    color: #000;
-    position: absolute;
-    top: 0px;
-    text-align: center;
-    text-decoration: none;
-    font: bold 12px Arial, Helvetica, sans-serif;
-}
-.dock-item img {
-    border: none; 
-    margin: 5px 10px 0px; 
-    width: 100%; 
-}
-.dock-item span {
-    display: none; 
-    padding-left: 20px;
-}
-
-/* dock2 - bottom */
-#dock2 {
-    width: 100%;
-    bottom: 0px;
-    height: 40px;
-    position: absolute;
-    left: 0px;
-    z-index: 10000;
-}
-.dock-container2 {
-    position: absolute;
-    height: 40px;
-    background: url(../images/dock-bg.gif);
-    padding-left: 20px;
-}
-a.dock-item2 {
-    display: block; 
-    font: bold 12px Arial, Helvetica, sans-serif;
-    width: 30px; 
-    color: #000; 
-    bottom: 0px; 
-    position: absolute;
-    text-align: center;
-    text-decoration: none;
-}
-.dock-item2 span {
-    display: none;
-    padding-left: 20px;
-    font-size: 16px; 
-}
-.dock-item2 img {
-    border: none; 
-    margin: 5px 10px 0px; 
-    width: 100%; 
 }

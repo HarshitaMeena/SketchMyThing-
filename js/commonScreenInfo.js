@@ -71,8 +71,6 @@ $(document).ready(
 
         getSMTInfo();
 
-        $("#SMTSettingsDockIcon").fancybox(fancyboxOptions);
-        $("#SMTProfileDockIcon").fancybox(fancyboxOptions);
         $(".sketchOverlayMsg").select(
             function () {
                 return false;

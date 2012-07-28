@@ -149,7 +149,7 @@ div.anythingSlider .anythingControls { outline: 0; display: none; }
 div.anythingSlider .anythingControls ul { margin: 0; padding: 0; float: left; }
 div.anythingSlider .anythingControls ul li { display: inline; }
 div.anythingSlider .anythingControls ul a {
-	font: bolder 14px/18px Comic Sans MS, Georgia, Serif;
+	font: 14px Trebuchet MS, Arial, Helvetica, sans-serif;
 	display: inline-block;
 	text-decoration: none;
 	padding: 4px 8px;

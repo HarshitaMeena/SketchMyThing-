@@ -50,9 +50,6 @@ $(document).ready(
 	function() {
 		getSMTInfo();
 		
-		$("#SMTSettingsDockIcon").fancybox(fancyboxOptions);
-		$("#SMTProfileDockIcon").fancybox(fancyboxOptions);
-		
 		$("#LeaveMatchBtn").click(
 			function () {
 				$.ajax({
@@ -67,6 +64,8 @@ $(document).ready(
 
 		$("#StartMatchBtn").click(
 			function () {
+    		    if($(".column").eq(1).html() == "")
+    		        return;
 				$.ajax({
 					type: "POST",
 					data: "Start=1",
@@ -79,6 +78,8 @@ $(document).ready(
 				
 		$("#shoutBtn").click(
 			function () {
+			    if($("#shoutMsgDiv").val() == "")
+			        return;
 				$.ajax({
 					type: "POST",
 					data: "Shout=" + $("#shoutMsgDiv").val(),

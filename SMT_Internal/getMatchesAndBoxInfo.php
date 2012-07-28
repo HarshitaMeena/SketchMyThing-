@@ -116,17 +116,11 @@
 
         if($stabilityTimeLeft < 1) {
             $handle = @fopen("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word", "r");
-                $data = @trim(@fread($handle, filesize("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word")));
+                $word = @trim(@fread($handle, filesize("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word")));
             @fclose($handle);
 
             $handle = @fopen("Matches/MatchInfo/Drawings/" . $_SESSION['SMT_MID'] . ".mev", "w");
             @fclose($handle);
-
-            $todaysBox = "ShoutBox/Private/" . $_SESSION['SMT_MID'] . ".box";
-            $todaysBoxHandle = @fopen($todaysBox, "a");
-                @fwrite($todaysBoxHandle, "<br><center>\n");
-                @fwrite($todaysBoxHandle, "<span class='chatSuper'>The round has ended.</span><br>\n");
-                @fwrite($todaysBoxHandle, "<span class='chatSuper'>Word of the round was: </span><span class='chatUser'>$data</span><br>\n");
 
             $handle = @fopen("Dicts/Pictionary.txt", "r");
                 $data = @explode("\n", @fread($handle, filesize("Dicts/Pictionary.txt")));
@@ -162,7 +156,13 @@
                     @fwrite($fhandle, $points);
                 @fclose($fhandle);
             }
-            @fwrite($todaysBoxHandle, "<span class='chatSuper'>Players who got this one:</span><br>\n");
+
+            $todaysBox = "ShoutBox/Private/" . $_SESSION['SMT_MID'] . ".box";
+            $todaysBoxHandle = @fopen($todaysBox, "a");
+                @fwrite($todaysBoxHandle, "<br><center>\n");
+                @fwrite($todaysBoxHandle, "<span class='chatSuper'>Word of the round was: </span><span class='chatUser'>$word</span><br>\n");
+
+            @fwrite($todaysBoxHandle, "<span class='chatSuper'>Player(s) who got this one:</span><br>\n");
             foreach($correctPlayers as $player=>$point) {
                 $handle = @fopen("../UsersDB/Members/" . $player, "r");
                     $line = @fgets($handle);
