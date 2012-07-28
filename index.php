@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Sketch My Thing !</title>
+<title>Sketch My Thing!</title>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/fancybox.css" rel="stylesheet" type="text/css" />
@@ -111,7 +111,7 @@
             <h2 style="float: right; margin-right: 7em;">Version : 1.01b</h2>
             <div id="nonFartContent" style="clear: both;">
             <?php if(!$loggedIn) echo
-            '<p style="font-size: 1em; width: 780px; margin-left: 90px;">An addictive multi-player game where one person draws something while the other players guess what the person is trying to draw .. like a massive online version of pictionary. Inspired by OMGPOP Draw My Thing! (which sadly doesn\'t work inside the IITB network because of the great NetMon proxy). Sketch My Thing! is entirely coded in PHP and JS, using the latest HTML5 technologies.<br><br>The major improvement that we have brought in this is the HTML5 canvas instead of Flash, and AJAX polling instead of background connections through ports.</p><br>
+            '<p style="font-size: 1em; width: 780px; margin-left: 40px;">An addictive multi-player game where one person draws something while the other players guess what the person is trying to draw .. like a massive online version of pictionary. Inspired by OMGPOP Draw My Thing! (which sadly doesn\'t work inside the IITB network because of the great NetMon proxy). Sketch My Thing! is entirely coded in PHP and JS, using the latest HTML5 technologies.<br><br>The major improvement that we have brought in this is the HTML5 canvas instead of Flash, and AJAX polling instead of background connections through ports.</p><br>
             <h1 style="text-align: center; font-size: 1.6em;">Registered Members : <span id="MemCount">Counting ..</span> | Online Members : <span id="OLCount">Counting ..</span></h1>
             <br>'; else echo
             '<ul id="slider">

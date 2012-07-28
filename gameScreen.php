@@ -38,7 +38,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>Sketch My Thing !</title>
+    <title>Sketch My Thing!</title>
 
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <!--<link href="css/fancybox.css" rel="stylesheet" type="text/css" />-->

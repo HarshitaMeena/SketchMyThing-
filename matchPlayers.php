@@ -22,7 +22,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-    <title>Sketch My Thing !</title>
+    <title>Sketch My Thing!</title>
 
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <!--<link href="css/fancybox.css" rel="stylesheet" type="text/css" />-->

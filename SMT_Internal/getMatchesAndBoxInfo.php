@@ -114,6 +114,21 @@
             $matchHost = @trim(@fread($matchFileHandler, filesize("Matches/MatchInfo/Hosts/" . $_SESSION['SMT_MID'] . ".host")));
         @fclose($matchFileHandler);
 
+        $fhandle = @fopen("Matches/Locked/" . $_SESSION['SMT_MID'] . ".Lsmt", "r");
+     	$data = @explode("\n", @trim(@fread($fhandle, filesize("Matches/Locked/" . $_SESSION['SMT_MID'] . ".Lsmt"))));
+		 @fclose($fhandle);
+		 $points = array();
+		 foreach($data as $player) {
+			$pointfile = "../UsersDB/MatchPoints/" . $player;
+			if(file_exists($pointfile)) {
+				$fhandle = @fopen($pointfile, "r");
+				$points[$player] = @intval(@trim(@fread($fhandle, filesize($pointfile))));
+				@fclose($fhandle);
+				}
+			else
+				$points[$player] = 0;
+		}
+
         if($stabilityTimeLeft < 1) {
             $handle = @fopen("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word", "r");
                 $word = @trim(@fread($handle, filesize("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word")));
@@ -169,7 +184,7 @@
             if(!count($correctPlayers))
                 $bufferData .= "<span class='chatUser'> NO ONE !!</span><br>\n";
             $bufferData .= "</center>".var_dump($correctPlayers)."<br>\n";
-            
+
             $todaysBox = "ShoutBox/Private/" . $_SESSION['SMT_MID'] . ".box";
             $todaysBoxHandle = @fopen($todaysBox, "a");
                 @fwrite($todaysBoxHandle, $bufferData);
@@ -197,9 +212,10 @@
                 $handle = @fopen("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word", "r");
                     $word = @trim(@fread($handle, filesize("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word")));
                 @fclose($handle);
-                echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft, "WORD" => preg_replace("/[a-zA-Z]/", "*", $word)));
+
+                echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft, "WORD" => preg_replace("/[a-zA-Z]/", "*", $word), "POINTS" => $points));
             } else
-                echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft));
+                echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft, "POINTS" => $points));
         }
     }
 ?>

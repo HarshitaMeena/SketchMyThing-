@@ -27,8 +27,12 @@ var getSMTInfo = function() {
             }
             $("#timeLeft").html(parseInt(data.TIMELEFT / 60) + ":" + (data.TIMELEFT % 60));
             if(!($("#sketchOverlayTools")))
-                if(typeof data.WORD !== "undefined")
+                if(typeof data.WORD != "undefined")
                     $("#THEWORD").html(data.WORD);
+                    
+            if(typeof data.POINTS != "undefined")
+            	console.log(data.POINTS);
+
             if(data.UNSTABLE)
                 window.location = "./";
             setTimeout(getSMTInfo, 800);

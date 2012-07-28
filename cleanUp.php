@@ -21,9 +21,9 @@
             }
         }
     }
-    
+
     function detectDeadUsers() {
-        $retArray = new array();
+        $retArray = array();
         $files = glob("UsersDB/LastAjax/*");
         foreach($files as $file) {
             $handle = @fopen($file, "r");
@@ -33,6 +33,6 @@
                 $retArray[] = basename($file);
         }
     }
-    
+
     detectDeadUsers();
 ?>

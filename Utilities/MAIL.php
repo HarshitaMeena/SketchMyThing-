@@ -26,7 +26,7 @@ function sendVerifyMail($to_whom, $at_address, $verifyCode)
     $message[] = "Thanks for registering on <b>Sketch My Thing</b> :-)<br>";
     $message[] = "To confirm your LDAP id on SMT server, please visit the link below :<br>";
     $message[] = "<br>";
-    $message[] = "<a href='http://www.cse.iitb.ac.in/~saswatpadhi/SMT_New/UsersDB/confirmUser.php?code=$verifyCode'>http://www.cse.iitb.ac.in/~saswatpadhi/SMT_New/UsersDB/confirmUser.php?code=$verifyCode</a><br>";
+    $message[] = "<a href='http://www.cse.iitb.ac.in/~saswatpadhi/SMT/UsersDB/confirmUser.php?code=$verifyCode'>http://www.cse.iitb.ac.in/~saswatpadhi/SMT_New/UsersDB/confirmUser.php?code=$verifyCode</a><br>";
     $message[] = "<br>";
     $message[] = "Regards,<br>";
     $message[] = "SMT Admin";
