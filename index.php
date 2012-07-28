@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Sketch My Thing !</title>
+<title>Sketch My Thing!</title>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/fancybox.css" rel="stylesheet" type="text/css" />
@@ -48,11 +48,11 @@
     <div id="panel">
         <div class="content clearfix">
             <div class="left">
-                <h1 class="smt">Sketch My Thing !</h1>
+                <div class="smt" style="font-size: 2.5em;">Sketch My Thing!</div>
                 <h2>Restricted to IIT-B students ONLY.</h2>
-                <p class="grey">Sketch My Thing ! is currently open only to IIT-B students, because of technical issues of handling huge number of users, while hosting on CSE server.</p>
+                <p class="grey">Sketch My Thing! is currently open only to IIT-B students, because of technical issues of handling huge number of users, while hosting on CSE server.</p>
                 <h2>But ...</h2>
-                <p class="grey">You can drop me a mail at my CSE mail address : saswatpadhi@cse.iitb.ac.in for an account.</p>
+                <p class="grey">You can drop us a mail at our CSE mail IDs : saswatpadhi@cse.iitb.ac.in / harshita@cse.iitb.ac.in for an account.</p>
             </div>
             <div class="left">
                 <!-- Login Form -->
@@ -106,44 +106,43 @@
 
     <div id="container">
         <div id="content">
-            <h1 class="smt" style="font-size: 3em; text-align: center;" id="SMThead">Sketch My Thing !</h1>
-            <div style="margin-top: 10px;"></div>
-            <?php if($loggedIn) echo '<h2 style="padding-left: 3em; float:left;">Hello, <i>' . $_SESSION['SMT_UName'] . '</i> !</h2>'; ?><h2 style="padding-right: 16em; float: right;"><i>Version : 0.9b</i></h2>
+            <div class="smt" style="margin-top: <?php if(!$loggedIn) echo "64px"; else echo "8px";?>; font-size: 7em; text-align: center;" id="SMThead">Sketch My Thing!</div>
+            <?php if($loggedIn) echo '<h2 style="margin-left: 3.5em; float:left;">Hello, <i>' . $_SESSION['SMT_UName'] . '</i> !</h2>'; ?>
+            <h2 style="float: right; margin-right: 7em;">Version : 1.01b</h2>
             <div id="nonFartContent" style="clear: both;">
             <?php if(!$loggedIn) echo
-            '<p class="highlight">Sketch My Thing is an addictive multi-player game where one person draws something while the other players guess what word they are trying to say, like a massive online version of pictionary.</p>
-            <h1 style="text-align: center; font-size: 1.6em;">Registered Members : <span id="MemCount">Counting ..</span></h1>
+            '<p style="font-size: 1em; width: 780px; margin-left: 40px;">An addictive multi-player game where one person draws something while the other players guess what the person is trying to draw .. like a massive online version of pictionary. Inspired by OMGPOP Draw My Thing! (which sadly doesn\'t work inside the IITB network because of the great NetMon proxy). Sketch My Thing! is entirely coded in PHP and JS, using the latest HTML5 technologies.<br><br>The major improvement that we have brought in this is the HTML5 canvas instead of Flash, and AJAX polling instead of background connections through ports.</p><br>
+            <h1 style="text-align: center; font-size: 1.6em;">Registered Members : <span id="MemCount">Counting ..</span> | Online Members : <span id="OLCount">Counting ..</span></h1>
             <br>'; else echo
             '<ul id="slider">
                 <li>
-                    <p style="font: bold 24px Comic Sans MS;">
-                        Create a new match and invite your friends to join :)
+                    <p style="font-size: 2em;">
+                        Being addicted to <span class="smt">Sketch My Thing!</span> is simple as A B C.. <br><br>
+                        <span class="smt">A </span> new match has to be started by you (button below) <br>
+                        <span class="smt">B</span>e the host of the match, invite / kick out players <br>
+                        <span class="smt">C</span>reate your drawing and let your friends guess what it is <br><br>
+                        <span style="font-size: 0.7em; text-align: center;">The "host of the match", who draws stuff; keeps cycling amongst all players in the match.</span>
                     </p>
-                    <p style="font: 20px Comic Sans MS; text-align: justify;">
-                        When you start a match, you become the HOST of the match. You have the power to kick any player out of your match <b>before the game starts</b>.<br>
-                        Of course, you being the HOST, decide when to start the game ;-)<br><br>
-                        Further, you get to draw the first picture of the match.
-                    </p>
-                    <center><button id="createNewMatchBtn" style="margin-top: 12px; height: 84px; font: bold 32px Comic Sans MS;">New SMT Match !</button></center>
+                    <center><button id="createNewMatchBtn" style="color: blue; margin-top: 12px; height: 84px; font: bold 48px customfont; border-radius: 16px; -moz-border-radius: 16px;">new smt match!</button></center>
                 </li>
                 <li>
                     <div class="gamesTable">
                     <table cellspacing="0" cellpadding="0" border="0" width="860px">
                         <tr>
                             <td>
-                                <table cellspacing="0" cellpadding="0" border="0" width="844px">
+                                <table cellspacing="0" cellpadding="0" border="0" width="858px" style="font-size: 1.5em;">
                                     <tr>
-                                        <th class="GameID">Game_ID</th>
+                                        <th class="GameID">Game ID</th>
                                         <th class="Players">Players</th>
-                                        <th class="JoinGame">Join ??</th>
+                                        <th class="JoinGame">Availability</th>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div style="width: 844px; height: 25.8em; overflow: auto;">
-                                    <table cellspacing="0" cellpadding="0" border="0" width="844px" id="mainGameTable">
+                                <div style="width: 858px; height: 25.8em; overflow: auto;">
+                                    <table cellspacing="0" cellpadding="0" border="0" id="mainGameTable">
                                         <tbody></tbody>
                                     </table>
                                 </div>
@@ -159,9 +158,9 @@
                         <button id="shoutBtn">SHOUT !</button>
                     </div>
                 </li>
-            </ul>';?>
+            </ul><br>';?>
             </div>
-            <h2 style="text-align: center; font-size: 1.2em;">Sketch My Thing ! Designed and Created by Saswat Padhi, BTech III CSE IIT-Bombay [2012]</h2>
+            <div style="text-align: center; font-size: 1em; color: grey;"><span class="smt">Sketch My Thing!</span> Designed and Created (from scratch!) by Saswat Padhi & Harshita Meena, BTech III CSE IIT-Bombay [2012]</div>
         </div><!-- / content -->
     </div><!-- / container -->
     <script type="text/javascript" >
@@ -173,7 +172,7 @@
 
                 if(isset($_POST['defStatus'])) {
                     if($_POST['defStatus'])            echo "$('#panelMSG').addClass('goodmsg');\n";
-                    else                                    echo "$('#panelMSG').addClass('badmsg');\n";
+                    else                               echo "$('#panelMSG').addClass('badmsg');\n";
 
                     echo 'setTimeout(function() {$("#open").click();}, 500);';
                 }

@@ -25,7 +25,7 @@
         if(!isLoggedIn())
         {
             $currentLocation = "./";
-            while(!file_exists($currentLocation . "iepngfix.htc"))
+            while(!file_exists($currentLocation . "config.php"))
                 $currentLocation = $currentLocation . "../";
             header("Location: " . $currentLocation);
             die();

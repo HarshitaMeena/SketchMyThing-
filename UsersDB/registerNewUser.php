@@ -3,7 +3,10 @@
     require_once dirname(dirname(__FILE__)) . "/Utilities/MAIL.php";
 
     $retArray = array();
-    if(file_exists("Members/" . $_POST['log']))
+    $retArray["status"] = false;
+    $retArray["message"] = "Registrations are closed for now till HackU ends.";
+
+    /*if(file_exists("Members/" . $_POST['log']))
     {
         $retArray["status"] = false;
         $retArray["message"] = "A verified account with this username already exists !";
@@ -40,7 +43,7 @@
 
         $retArray["status"] = true;
         $retArray["message"] = "Thanks, $to. A verification link has been sent to $at.";
-    }
+    }*/
 
     header("Content-type: application/json");
     echo json_encode($retArray);

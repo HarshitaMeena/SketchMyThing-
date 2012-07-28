@@ -3,9 +3,15 @@ var getMemberCount = function(){
     setTimeout(getMemberCount, 5000);
 };
 
+var getOnlineCount = function(){
+    $("#OLCount").load("UsersDB/?action=get_online");
+    setTimeout(getOnlineCount, 5000);
+};
+
 $(document).ready(
     function() {
         getMemberCount();
+        getOnlineCount();
 
         $('.bt_login').click(
             function () {

@@ -42,9 +42,9 @@ var getSMTInfo = function() {
             }
             $("#mainGameTable tr").remove();
             for(i = 0; i < data.MATCH[0].length; ++i)
-                $('#mainGameTable > tbody:last').append("<tr><td class='GameID'>"+data.MATCH[0][i].TEAM+"</td><td class='Players'>"+data.MATCH[0][i].PLAYERS+"</td><td class='JoinGame'><button onclick=\"tryJoiningMatch('"+data.MATCH[0][i].TEAM+"');\">JOIN</button></td></tr>");
+                $('#mainGameTable > tbody:last').append("<tr><td class='GameID'>"+data.MATCH[0][i].TEAM+"</td><td class='Players'>"+data.MATCH[0][i].PLAYERS+"</td><td class='JoinGame'><button class='JoinBtn' onclick=\"tryJoiningMatch('"+data.MATCH[0][i].TEAM+"');\">JOIN</button></td></tr>");
             for(i = 0; i < data.MATCH[1].length; ++i)
-                $('#mainGameTable > tbody:last').append("<tr><td class='GameID'>"+data.MATCH[1][i].TEAM+"</td><td class='Players'>"+data.MATCH[1][i].PLAYERS+"</td><td class='JoinGame'><s>&nbsp;JOIN&nbsp;&nbsp;</s></td></tr>");
+                $('#mainGameTable > tbody:last').append("<tr><td class='GameID'>"+data.MATCH[1][i].TEAM+"</td><td class='Players'>"+data.MATCH[1][i].PLAYERS+"</td><td class='JoinGame' style='color: #f66;'><s>&nbsp;JOIN&nbsp;&nbsp;</s></td></tr>");
             setTimeout(getSMTInfo, 800);
         }
     });

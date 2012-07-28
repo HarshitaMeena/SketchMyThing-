@@ -26,6 +26,12 @@ var getSMTInfo = function() {
                 nextReadMatchShoutsFrom = parseInt(data.SHOUT.MPOS);
             }
             $("#timeLeft").html(parseInt(data.TIMELEFT / 60) + ":" + (data.TIMELEFT % 60));
+            if(!($("#sketchOverlayTools")))
+                if(typeof data.WORD != "undefined")
+                    $("#THEWORD").html(data.WORD);
+                    
+            if(typeof data.POINTS != "undefined")
+            	console.log(data.POINTS);
             if(data.UNSTABLE)
                 window.location = "./";
             setTimeout(getSMTInfo, 800);
@@ -71,8 +77,6 @@ $(document).ready(
 
         getSMTInfo();
 
-        $("#SMTSettingsDockIcon").fancybox(fancyboxOptions);
-        $("#SMTProfileDockIcon").fancybox(fancyboxOptions);
         $(".sketchOverlayMsg").select(
             function () {
                 return false;

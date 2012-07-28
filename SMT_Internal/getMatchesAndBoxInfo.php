@@ -114,19 +114,28 @@
             $matchHost = @trim(@fread($matchFileHandler, filesize("Matches/MatchInfo/Hosts/" . $_SESSION['SMT_MID'] . ".host")));
         @fclose($matchFileHandler);
 
+        $fhandle = @fopen("Matches/Locked/" . $_SESSION['SMT_MID'] . ".Lsmt", "r");
+     	$data = @explode("\n", @trim(@fread($fhandle, filesize("Matches/Locked/" . $_SESSION['SMT_MID'] . ".Lsmt"))));
+		 @fclose($fhandle);
+		 $points = array();
+		 foreach($data as $player) {
+			$pointfile = "../UsersDB/MatchPoints/" . $player;
+			if(file_exists($pointfile)) {
+				$fhandle = @fopen($pointfile, "r");
+				$points[$player] = @intval(@trim(@fread($fhandle, filesize($pointfile))));
+				@fclose($fhandle);
+				}
+			else
+				$points[$player] = 0;
+		}
+
         if($stabilityTimeLeft < 1) {
             $handle = @fopen("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word", "r");
-                $data = @trim(@fread($handle, filesize("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word")));
+                $word = @trim(@fread($handle, filesize("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word")));
             @fclose($handle);
 
             $handle = @fopen("Matches/MatchInfo/Drawings/" . $_SESSION['SMT_MID'] . ".mev", "w");
             @fclose($handle);
-
-            $todaysBox = "ShoutBox/Private/" . $_SESSION['SMT_MID'] . ".box";
-            $todaysBoxHandle = @fopen($todaysBox, "a");
-                @fwrite($todaysBoxHandle, "<br><center>\n");
-                @fwrite($todaysBoxHandle, "<span class='chatSuper'>The round has ended.</span><br>\n");
-                @fwrite($todaysBoxHandle, "<span class='chatSuper'>Word of the round was: </span><span class='chatUser'>$data</span><br>\n");
 
             $handle = @fopen("Dicts/Pictionary.txt", "r");
                 $data = @explode("\n", @fread($handle, filesize("Dicts/Pictionary.txt")));
@@ -162,18 +171,23 @@
                     @fwrite($fhandle, $points);
                 @fclose($fhandle);
             }
-            @fwrite($todaysBoxHandle, "<span class='chatSuper'>Players who got this one:</span><br>\n");
+
+            $bufferData = "<br><center>\n<span class='chatSuper'>Word of the round was: </span><span class='chatUser'>$word</span><br>\n<span class='chatSuper'>Player(s) who got this one:</span><br>\n";
             foreach($correctPlayers as $player=>$point) {
                 $handle = @fopen("../UsersDB/Members/" . $player, "r");
                     $line = @fgets($handle);
                     $fullName = @trim(@fgets($handle));
                 @fclose($handle);
 
-                @fwrite($todaysBoxHandle, "<span class='chatUser'>$fullName [$point]</span><br>\n");
+                $bufferData .= "<span class='chatUser'>$fullName [$point]</span><br>\n";
             }
             if(!count($correctPlayers))
-                @fwrite($todaysBoxHandle, "<span class='chatUser'> NO ONE !!</span><br>\n");
-            @fwrite($todaysBoxHandle, "</center>".var_dump($correctPlayers)."<br>\n");
+                $bufferData .= "<span class='chatUser'> NO ONE !!</span><br>\n";
+            $bufferData .= "</center>".var_dump($correctPlayers)."<br>\n";
+
+            $todaysBox = "ShoutBox/Private/" . $_SESSION['SMT_MID'] . ".box";
+            $todaysBoxHandle = @fopen($todaysBox, "a");
+                @fwrite($todaysBoxHandle, $bufferData);
             @fclose($todaysBoxHandle);
 
             $oldHost = array_shift($data);
@@ -194,8 +208,13 @@
                 echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => true, "TIMELEFT" => $stabilityTimeLeft));
             else if($matchHost != $_SESSION['SMT_UId'] && $_SESSION['SMT_Role'] == 'Active')
                 echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => true, "TIMELEFT" => $stabilityTimeLeft));
-            else
-                echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft));
+            else if($stabilityTimeLeft > 55) {
+                $handle = @fopen("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word", "r");
+                    $word = @trim(@fread($handle, filesize("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word")));
+                @fclose($handle);
+                echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft, "WORD" => preg_replace("/[a-zA-Z]/", "*", $word), "POINTS" => $points));
+            } else
+                echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft, "POINTS" => $points));
         }
     }
 ?>

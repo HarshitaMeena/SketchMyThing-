@@ -38,15 +38,15 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>Sketch My Thing !</title>
+    <title>Sketch My Thing!</title>
 
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/fancybox.css" rel="stylesheet" type="text/css" />
+    <!--<link href="css/fancybox.css" rel="stylesheet" type="text/css" />-->
     <link href="css/anythingslider.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript" src="js/fancybox.js"></script>
+    <!--<script type="text/javascript" src="js/fancybox.js"></script>-->
     <script type="text/javascript" src="js/anythingslider.js"></script>
     <script type="text/javascript" src="js/commonScreenInfo.js"></script>
     <?php if($_SESSION['SMT_Role'] == 'Active') echo '    <script type="text/javascript" src="js/activeScreenInfo.js"></script>'; else echo '    <script type="text/javascript" src="js/passiveScreenInfo.js"></script>';?>
@@ -55,9 +55,8 @@
 <body>
     <div id="container">
         <div id="content">
-            <h1 class="smt" style="font-size: 3em; text-align: center;" id="SMThead">Sketch My Thing !</h1>
-            <div style="margin-top: 10px;"></div>
-            <h2 style="padding-left: 3em; float:left;">Hello, <i><?php echo $_SESSION['SMT_UName']; ?></i> !</h2><h2 style="padding-right: 16em; float: right;"><i>Version : 0.9b</i></h2>
+            <div class="smt" style="margin-top: 8px; font-size: 7em; text-align: center;" id="SMThead">Sketch My Thing!</div>
+            <h2 style="padding-left: 3.5em; float:left;">Hello, <i><?php echo $_SESSION['SMT_UName']; ?></i> !</h2><h2 style="float: right; margin-right: 7em;">Version : 1.01b</h2>
             <div id="nonFartContent" style="clear: both;">
             <ul id="slider">
                 <li>
@@ -100,8 +99,8 @@
                     </div>
                 </li>
             </ul>
-            </div>
-            <h2 style="text-align: center; font-size: 1.2em;">Sketch My Thing ! Designed and Created by Saswat Padhi, BTech II CSE IIT-Bombay [2011]</h2>
+            </div><br>
+            <div style="text-align: center; font-size: 1em; color: grey;"><span class="smt">Sketch My Thing!</span> Designed and Created (from scratch!) by Saswat Padhi, BTech III CSE IIT-Bombay [2012]</div>
         </div><!-- / content -->
     </div><!-- / container -->
 </body>

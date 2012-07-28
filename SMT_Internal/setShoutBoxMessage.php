@@ -9,13 +9,13 @@
 
     $RealText = str_replace("\n", " ", $_POST['Shout']);
 
-    $NormalSmileyList = array("bug", "BUG", ";)", ";-)", ":)", ":-|", ":|", ":'(", ":(", ":-)", ":-(", "B-)", "B)", "8)", "8-)", ":D", ":-D", ":d", ":-d", "LOL", "lol", "rofl", "ROFL", ":-O", ":-o", ":O", ":o", "o_o", "O_O", "X-(", "x-(", "x(", "X(", "<3", ":P", ":-P", ":p", ":-p", ":*", ":-*", ":S", ":-S", ":s", ":-s");
+    $NormalSmileyList = array("bug", ";)", ";-)", ":)", ":-|", ":|", ":'(", ":(", ":-)", ":-(", "b-)", "b)", "8)", "8-)", ":d", ":-d", "lol", "rofl", ":-o", ":o", "o_o", "x-(", "x(", "<3", ":p", ":-p", ":*", ":-*", ":s", ":-s");
     for($i = 0; $i < count($NormalSmileyList); ++$i)
-        $RealText = str_replace($NormalSmileyList[$i], "<img src=\"images/smileys/" . urlencode($NormalSmileyList[$i]) . ".gif\"/>", $RealText);
+        $RealText = str_ireplace($NormalSmileyList[$i], "<img src=\"images/smileys/" . urlencode($NormalSmileyList[$i]) . ".gif\"/>", $RealText);
 
     $EscapedSmileyList = array("\m/", ":-/", ":/", ":\\", ":-\\", "..|. .|..");
     for($i = 0; $i < count($EscapedSmileyList); ++$i)
-        $RealText = str_replace($EscapedSmileyList[$i], "<img src=\"images/smileys/escaped/" . urlencode(urlencode($EscapedSmileyList[$i])) . ".gif\"/>", $RealText);
+        $RealText = str_ireplace($EscapedSmileyList[$i], "<img src=\"images/smileys/escaped/" . urlencode(urlencode($EscapedSmileyList[$i])) . ".gif\"/>", $RealText);
 
     if(isset($_SESSION['SMT_MID']))
         @fwrite($todaysBoxHandle, "<span class='chatUser'>" . $_SESSION['SMT_UName'] . "</span> <span class='chatGroup'>{" . $_SESSION['SMT_MID'] . "}</span> <span class='chatTime'>[" . date("h:i A") . "]</span> : " . $RealText . "<br>\n");
