@@ -55,7 +55,7 @@
 <body>
     <div id="container">
         <div id="content">
-            <div class="smt" style="margin-top: 64px; font-size: 7em; text-align: center;" id="SMThead">Sketch My Thing!</div>
+            <div class="smt" style="margin-top: 8px; font-size: 7em; text-align: center;" id="SMThead">Sketch My Thing!</div>
             <h2 style="padding-left: 3.5em; float:left;">Hello, <i><?php echo $_SESSION['SMT_UName']; ?></i> !</h2><h2 style="float: right; margin-right: 7em;">Version : 1.01b</h2>
             <div id="nonFartContent" style="clear: both;">
             <ul id="slider">
@@ -99,8 +99,8 @@
                     </div>
                 </li>
             </ul>
-            </div>
-            <h2 style="text-align: center; font-size: 1.2em;">Sketch My Thing ! Designed and Created by Saswat Padhi, BTech II CSE IIT-Bombay [2011]</h2>
+            </div><br>
+            <div style="text-align: center; font-size: 1em; color: grey;"><span class="smt">Sketch My Thing!</span> Designed and Created (from scratch!) by Saswat Padhi, BTech III CSE IIT-Bombay [2012]</div>
         </div><!-- / content -->
     </div><!-- / container -->
 </body>

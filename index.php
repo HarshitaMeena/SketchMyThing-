@@ -106,7 +106,7 @@
 
     <div id="container">
         <div id="content">
-            <div class="smt" style="margin-top: 64px; font-size: 7em; text-align: center;" id="SMThead">Sketch My Thing!</div>
+            <div class="smt" style="margin-top: <?php if(!$loggedIn) echo "64px"; else echo "8px";?>; font-size: 7em; text-align: center;" id="SMThead">Sketch My Thing!</div>
             <?php if($loggedIn) echo '<h2 style="margin-left: 3.5em; float:left;">Hello, <i>' . $_SESSION['SMT_UName'] . '</i> !</h2>'; ?>
             <h2 style="float: right; margin-right: 7em;">Version : 1.01b</h2>
             <div id="nonFartContent" style="clear: both;">

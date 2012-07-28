@@ -128,15 +128,11 @@ a:hover {
 #sketchArea {
     float: left;
     background-color: white;
-    opacity: 0.8;
     margin-top: 2px;
     border: 2px solid #ccc;
     -webkit-border-radius: 16px;
     -moz-border-radius: 16px;
     border-radius: 16px;
-    -moz-box-shadow: 4px 4px 3px #666;
-    -webkit-box-shadow: 4px 4px 3px #666;
-    box-shadow: 4px 4px 3px #666;
     z-index: 100;
 }
 
@@ -167,7 +163,7 @@ a:hover {
 }
 
 .overlayText {
-    font-family: Comic Sans MS;
+    text-transform: uppercase;
 }
 
 #THEWORD {
@@ -190,8 +186,8 @@ a:hover {
 
 #sketchOverlayMsg:hover {
     opacity: 1;
-    font-size: 26px;
-    height: 36px;
+    font-size: 20px;
+    height: 26px;
 }
 
 #sketchOverlayMsg {
