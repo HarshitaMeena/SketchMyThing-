@@ -157,23 +157,22 @@
                 @fclose($fhandle);
             }
 
-            $todaysBox = "ShoutBox/Private/" . $_SESSION['SMT_MID'] . ".box";
-            $todaysBoxHandle = @fopen($todaysBox, "a");
-                @fwrite($todaysBoxHandle, "<br><center>\n");
-                @fwrite($todaysBoxHandle, "<span class='chatSuper'>Word of the round was: </span><span class='chatUser'>$word</span><br>\n");
-
-            @fwrite($todaysBoxHandle, "<span class='chatSuper'>Player(s) who got this one:</span><br>\n");
+            $bufferData = "<br><center>\n<span class='chatSuper'>Word of the round was: </span><span class='chatUser'>$word</span><br>\n<span class='chatSuper'>Player(s) who got this one:</span><br>\n";
             foreach($correctPlayers as $player=>$point) {
                 $handle = @fopen("../UsersDB/Members/" . $player, "r");
                     $line = @fgets($handle);
                     $fullName = @trim(@fgets($handle));
                 @fclose($handle);
 
-                @fwrite($todaysBoxHandle, "<span class='chatUser'>$fullName [$point]</span><br>\n");
+                $bufferData .= "<span class='chatUser'>$fullName [$point]</span><br>\n";
             }
             if(!count($correctPlayers))
-                @fwrite($todaysBoxHandle, "<span class='chatUser'> NO ONE !!</span><br>\n");
-            @fwrite($todaysBoxHandle, "</center>".var_dump($correctPlayers)."<br>\n");
+                $bufferData .= "<span class='chatUser'> NO ONE !!</span><br>\n";
+            $bufferData .= "</center>".var_dump($correctPlayers)."<br>\n";
+            
+            $todaysBox = "ShoutBox/Private/" . $_SESSION['SMT_MID'] . ".box";
+            $todaysBoxHandle = @fopen($todaysBox, "a");
+                @fwrite($todaysBoxHandle, $bufferData);
             @fclose($todaysBoxHandle);
 
             $oldHost = array_shift($data);
@@ -194,7 +193,12 @@
                 echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => true, "TIMELEFT" => $stabilityTimeLeft));
             else if($matchHost != $_SESSION['SMT_UId'] && $_SESSION['SMT_Role'] == 'Active')
                 echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => true, "TIMELEFT" => $stabilityTimeLeft));
-            else
+            else if($stabilityTimeLeft > 55) {
+                $handle = @fopen("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word", "r");
+                    $word = @trim(@fread($handle, filesize("Matches/MatchInfo/Words/" . $_SESSION['SMT_MID'] . ".word")));
+                @fclose($handle);
+                echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft, "WORD" => preg_replace("/[a-zA-Z]/", "*", $word)));
+            } else
                 echo @json_encode(array("SHOUT" => $retArray2, "UNSTABLE" => false, "TIMELEFT" => $stabilityTimeLeft));
         }
     }

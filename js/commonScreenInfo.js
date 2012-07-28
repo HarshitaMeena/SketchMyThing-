@@ -26,6 +26,9 @@ var getSMTInfo = function() {
                 nextReadMatchShoutsFrom = parseInt(data.SHOUT.MPOS);
             }
             $("#timeLeft").html(parseInt(data.TIMELEFT / 60) + ":" + (data.TIMELEFT % 60));
+            if(!($("#sketchOverlayTools")))
+                if(typeof data.WORD !== "undefined")
+                    $("#THEWORD").html(data.WORD);
             if(data.UNSTABLE)
                 window.location = "./";
             setTimeout(getSMTInfo, 800);
